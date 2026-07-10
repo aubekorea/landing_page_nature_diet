@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>다이어트 상담 예약</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+    <script src="submit-to-google-sheet.js?v=20260711-scroll-toggle" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="landing" aria-label="다이어트 랜딩 콘텐츠">
+        <img class="landing-image" src="images/mobile-landing-image.jpg" alt="다이어트 상담 안내">
+      </main>
+
+      <footer class="consult-footer" id="consult">
+        <img class="footer-base" src="images/back2.jpg" alt="" aria-hidden="true">
+        <img class="footer-model" src="images/footer_model.png" alt="" aria-hidden="true">
+
+        <form class="consult-form" id="consult-form" action="#" method="post" aria-label="다이어트 상담 예약 신청" data-google-sheet-form>
+          <input type="hidden" name="program" value="다이어트 상담">
+          <input type="hidden" name="source" value="diet_hospitalx_footer">
+
+          <label class="form-field">
+            <span>이름</span>
+            <input type="text" name="name" placeholder="이름" autocomplete="name" required>
+          </label>
+
+          <fieldset class="phone-field">
+            <legend>연락처</legend>
+            <div class="phone-group">
+              <div class="phone-prefix" aria-label="연락처 앞자리">010</div>
+              <input type="hidden" name="phone_prefix" value="010">
+              <input type="tel" name="phone_number" placeholder="연락처" inputmode="numeric" maxlength="8" required>
+            </div>
+          </fieldset>
+
+          <label class="form-field contact-time-field">
+            <span>연락가능한 시간</span>
+            <div class="select-control">
+              <select name="contact_time" required>
+                <option value="">연락가능한 시간</option>
+                <option value="anytime">상시 가능</option>
+                <option value="10-12">오전 10시 - 낮 12시</option>
+                <option value="12-14">낮 12시 - 오후 2시</option>
+                <option value="14-16">오후 2시 - 오후 4시</option>
+                <option value="16-18">오후 4시 - 오후 6시</option>
+              </select>
+            </div>
+          </label>
+
+          <div class="agreement-row">
+            <label class="agreement-check">
+              <input type="checkbox" id="privacy-agree" name="privacy_agree" value="Y" aria-required="true" required>
+              <span>개인정보 수집 이용 동의</span>
+            </label>
+            <button class="privacy-open" type="button" id="privacy-open" data-privacy-open>[보기]</button>
+          </div>
+
+          <button class="submit-button" type="submit">
+            <img src="images/button.png" alt="다이어트 상담 예약하기">
+          </button>
+
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </footer>
+    </div>
+
+    <section class="folding-reservation" data-folding-reservation aria-label="하단 예약 신청">
+      <button
+        class="folding-toggle"
+        type="button"
+        data-folding-toggle
+        aria-expanded="true"
+        aria-controls="folding-panel"
+      >
+        <span>다이어트 상담 예약 신청</span>
+        <span class="folding-arrow" aria-hidden="true"></span>
+      </button>
+
+      <div class="folding-panel" id="folding-panel">
+        <div class="folding-info">
+          <span>상담 예약</span>
+          <strong>빠른 상담 신청</strong>
+        </div>
+
+        <form class="folding-form" action="#" method="post" aria-label="하단 다이어트 상담 예약 신청" data-google-sheet-form>
+          <input type="hidden" name="program" value="다이어트 상담">
+          <input type="hidden" name="source" value="diet_hospitalx_folding">
+
+          <label>
+            <span>이름</span>
+            <input type="text" name="name" placeholder="이름" autocomplete="name" required>
+          </label>
+
+          <label class="folding-phone-field">
+            <span>연락처</span>
+            <div class="folding-phone-group">
+              <div class="folding-phone-prefix" aria-label="연락처 앞자리">010</div>
+              <input type="hidden" name="phone_prefix" value="010">
+              <input type="tel" name="phone_number" placeholder="연락처" inputmode="numeric" maxlength="8" required>
+            </div>
+          </label>
+
+          <label>
+            <span>연락가능한 시간</span>
+            <div class="folding-select-control">
+              <select name="contact_time" required>
+                <option value="">연락가능한 시간</option>
+                <option value="anytime">상시 가능</option>
+                <option value="10-12">오전 10시 - 낮 12시</option>
+                <option value="12-14">낮 12시 - 오후 2시</option>
+                <option value="14-16">오후 2시 - 오후 4시</option>
+                <option value="16-18">오후 4시 - 오후 6시</option>
+              </select>
+            </div>
+          </label>
+
+          <div class="folding-agreement-row">
+            <label class="agreement-check">
+              <input type="checkbox" name="privacy_agree" value="Y" aria-required="true" required>
+              <span>개인정보 수집 이용 동의</span>
+            </label>
+            <button class="privacy-open" type="button" data-privacy-open>[보기]</button>
+          </div>
+
+          <button class="folding-submit" type="submit">다이어트 상담 예약하기</button>
+          <p class="form-message folding-form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <div class="privacy-modal" id="privacy-modal" aria-hidden="true" hidden>
+      <div class="privacy-backdrop" data-privacy-close></div>
+      <section class="privacy-dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-title" tabindex="-1">
+        <button class="privacy-close" type="button" aria-label="개인정보 고지창 닫기" data-privacy-close></button>
+        <h2 id="privacy-title">개인정보 수집 및 이용 동의</h2>
+        <div class="privacy-content">
+          <p><strong>수집 항목</strong> 이름, 연락처, 연락가능한 시간</p>
+          <p><strong>수집 목적</strong> 다이어트 상담 신청 확인, 상담 일정 안내, 문의 응대</p>
+          <p><strong>보유 기간</strong> 상담 종료 후 3개월 또는 동의 철회 요청 시 지체 없이 파기</p>
+          <p><strong>동의 거부 권리</strong> 개인정보 수집 및 이용 동의를 거부할 수 있으며, 거부 시 상담 신청이 제한될 수 있습니다.</p>
+        </div>
+        <button class="privacy-confirm" type="button" data-privacy-close>확인</button>
+      </section>
+    </div>
+  </body>
+</html>
